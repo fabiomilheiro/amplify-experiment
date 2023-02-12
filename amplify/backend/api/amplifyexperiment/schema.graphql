@@ -1,0 +1,11 @@
+type Continents @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String!
+  animals: [Animals] @manyToMany(relationName: "ContinentsAnimals")
+}
+
+type Animals @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String!
+  continents: [Continents] @manyToMany(relationName: "ContinentsAnimals")
+}
